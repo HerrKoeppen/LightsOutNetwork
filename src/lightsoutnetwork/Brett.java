@@ -1,5 +1,7 @@
 package lightsoutnetwork;
 
+//eine kleine Änderung...
+
 import java.util.Random;
 
 public class Brett {
