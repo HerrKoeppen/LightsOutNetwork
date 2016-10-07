@@ -57,6 +57,9 @@ public class Brett {
             if(reihe+1!=feldspalten){
                 feld[reihe+1][spalte].umschalten();            
             }
+            
+            feld[reihe][spalte].umschalten();            
+            
             System.out.println();
             boolean gewonnen=true;
             int reihenZ=1;
