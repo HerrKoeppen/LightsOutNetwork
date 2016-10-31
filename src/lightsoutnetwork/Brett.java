@@ -29,7 +29,7 @@ public class Brett {
                 int n = rn.nextInt(2);
                 if (n==1){
                     feld[r][s]=new Lamp(true);
-                    text=text+"x"+"   ";
+                    text=text+"x"+"   " ;
                 }
                 else{
                     feld[r][s]=new Lamp(false);
