@@ -18,7 +18,7 @@ public class Brett {
     public void spielen(){
         int reihenZ=1;
         for (int sZ=1;sZ<=feldspalten;sZ++){
-            spaltenZ+=sZ+"        ";
+            spaltenZ+=sZ+"   ";
         }
         System.out.println(spaltenZ);
         for(int r=0;r<=feldreihen-1;r++){
@@ -29,11 +29,11 @@ public class Brett {
                 int n = rn.nextInt(2);
                 if (n==1){
                     feld[r][s]=new Lamp(true);
-                    text+=String.valueOf(feld[r][s].zustand)+"     ";
+                    text=text+"x"+"   ";
                 }
                 else{
                     feld[r][s]=new Lamp(false);
-                    text+=String.valueOf(feld[r][s].zustand)+"    ";
+                    text=text+"o"+"   ";
                 }
             }
             System.out.println(reihenZ+"  "+text);
@@ -66,10 +66,10 @@ public class Brett {
                 String text = "";
                 for (Lamp l:lamps){
                     if (l.zustand==true){
-                    text+=String.valueOf(l.zustand)+"     ";    
+                    text=text+"x"+"     ";    
                     }
                     else{
-                    text+=String.valueOf(l.zustand)+"    ";    
+                    text=text+"o"+"     ";    
                     }
                     if (l.zustand==true){
                         gewonnen=false;
