@@ -10,7 +10,8 @@ public class Brett {
     public boolean win=false;
     public String spaltenZ="   ";
     int Runde = 1;
-    
+    int aktiver_spieler=0;
+            
     public Brett(int reihen, int spalten){
         this.feldreihen=reihen;
         this.feldspalten=spalten;
@@ -45,6 +46,13 @@ public class Brett {
         
     public void spieler_wechsel(int Runde){
         Runde=Runde++;
+    }
+    public void spieler_am_zug(int Runde, int aktiver_Spieler){
+        if(Runde%2==0){
+            aktiver_Spieler=2;
+        }else{
+            aktiver_Spieler=1;
+        }
     }
     public void eingabe(int reihe, int spalte){
         if(((reihe <= feldreihen-1 && 0 <= reihe) && 0 <= spalte)&&spalte<=feldspalten-1){
