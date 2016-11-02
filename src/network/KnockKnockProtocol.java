@@ -3,10 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package KnockKnockServer;
-
-import java.net.*;
-import java.io.*;
+package network;
  
 public class KnockKnockProtocol {
     private static final int WAITING = 0;

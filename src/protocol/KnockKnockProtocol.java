@@ -4,10 +4,6 @@
  * and open the template in the editor.
  */
 package protocol;
-
-import network.*;
-import java.net.*;
-import java.io.*;
  
 public class KnockKnockProtocol {
     private static final int WAITING = 0;
