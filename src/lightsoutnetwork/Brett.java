@@ -11,6 +11,7 @@ public class Brett {
     public String spaltenZ="   ";
     int Runde = 1;
     int aktiver_spieler=0;
+    String Spielfeld= "";
             
     public Brett(int reihen, int spalten){
         this.feldreihen=reihen;
@@ -79,12 +80,6 @@ public class Brett {
         }
         return gewonnen;
     }
-
-    public void ausgabe() {
-        
-
-    }
-
     public void spielen() {
         int reihenZ = 1;
         for (int sZ = 1; sZ <= feldspalten; sZ++) {
@@ -111,6 +106,11 @@ public class Brett {
         System.out.println();
     } 
         
+    public String ausgabe_server() {
+        Spielfeld=Spielfeld+spaltenZ;
+        Spielfeld=Spielfeld+
+      
+    }
     public void spieler_wechsel(int Runde){
         Runde=Runde++;
     }
