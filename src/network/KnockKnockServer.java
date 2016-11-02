@@ -1,4 +1,4 @@
-package KnockKnockServer;
+package network;
 
 
 import java.net.*;
