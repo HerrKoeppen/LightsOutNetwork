@@ -9,6 +9,7 @@ public class Brett {
     public Lamp[][] feld;
     public boolean win=false;
     public String spaltenZ="   ";
+    int Runde = 1;
     
     public Brett(int reihen, int spalten){
         this.feldreihen=reihen;
@@ -41,6 +42,10 @@ public class Brett {
         }
         System.out.println();
     } 
+        
+    public void spieler_wechsel(int Runde){
+        Runde=Runde++;
+    }
     public void eingabe(int reihe, int spalte){
         if(((reihe <= feldreihen-1 && 0 <= reihe) && 0 <= spalte)&&spalte<=feldspalten-1){
             if(spalte-1!=-1){
