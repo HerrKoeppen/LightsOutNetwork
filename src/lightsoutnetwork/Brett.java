@@ -105,12 +105,13 @@ public class Brett {
         }
         System.out.println();
     } 
-        
+/*        
     public String ausgabe_server() {
         Spielfeld=Spielfeld+spaltenZ;
         Spielfeld=Spielfeld+
       
     }
+*/
     public void spieler_wechsel(int Runde){
         Runde=Runde++;
     }

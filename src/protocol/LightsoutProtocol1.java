@@ -1,45 +1,50 @@
 package protocol;
 
-import network.*;
-import java.net.*;
-import java.io.*;
- 
-public class LightsoutProtocol {
+import java.util.Arrays;
+import lightsoutnetwork.Brett;
+
+public class LightsoutProtocol1 {
+
     private static final int START = 0;
     private static final int SENTNAME = 1;
     private static final int SENTROW = 2;
     private static final int SENTCOLOUMN = 3;
     private static final int WAITING = 4;
     private static final int END = 5;
-    private static final int PLAYING = 6 ;
- 
+    private static final int PLAYING = 6;
+
     private static final int NUMJOKES = 5;
- 
+
     private int state = START;
-    
- 
+    private String namePlayer1;
+
     //private String[] name = { "Heinz", "Gustav", "Jorge", "Navid", "Klausi","Natalie","Ekin" };
     //private String[] answers = { "Turnip the heat, it's cold in here!",
     //                             "I didn't know you could yodel!",
-      //                           "Bless you!",
-        //                         "Is there an owl in here?",
-          //                       "Is there an echo in here?" };
+    //                           "Bless you!",
+    //                         "Is there an owl in here?",
+    //                       "Is there an echo in here?" };
     //private String[] row = {""};
- 
     public String processInput(String theInput) {
         String theOutput = null;
- 
+
         if (state == START) {
             theOutput = "Herzlich Willkommen bei unserem Spiel! Wähle einen der gegeben Namen :Heinz";
             state = SENTNAME;
         } else if (state == SENTNAME) {
-            if (theInput.equalsIgnoreCase("Heinz")) {
-               theOutput = "Spalte zwischen 0 und 4 wählen. Nur ganze Zahlen!!!";
-               state = SENTROW;
-            } else {
-                theOutput = "Du MUSST  \"Heinz\" heißen! ";
-            }
-        } else if (state == SENTROW) {
+            namePlayer1 = theInput;
+            //if (theInput.equalsIgnoreCase("Heinz")) {
+            //theOutput = "Spalte zwischen 0 und 4 wählen. Nur ganze Zahlen!!!";
+            //state = SENTROW;
+            //} else {
+            //    theOutput = "Du MUSST  \"Heinz\" heißen! ";
+            Brett spielbrett =new Brett(5,5);
+            theOutput =Arrays.toString(spielbrett.feld);
+        }
+        return theOutput;
+    }
+}
+/*else if (state == SENTROW) {
             if (theInput.equalsIgnoreCase("0")) {
                 theOutput = " Want another? (y/n)";
                 state = SENTCOLOUMN;
@@ -92,7 +97,8 @@ public class LightsoutProtocol {
                 theOutput = "Bye.";
                 state = WAITING;
             }
+
         }
         return theOutput;
     }
-     
+ */
