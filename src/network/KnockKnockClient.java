@@ -22,7 +22,7 @@ public static void main(String[] args) throws IOException {
 //            System.exit(1);
 //        }
  
-        String hostName = "10.16.117.100";
+        String hostName = "localhost";
         int portNumber = 80;
  
         try (

@@ -7,16 +7,27 @@ public class Brett {
     public int feldreihen;
     public int feldspalten;
     public Lamp[][] feld;
-    public boolean win=false;
-    public String spaltenZ="   ";
+    public boolean win = false;
+    public String spaltenZ = "   ";
     int Runde = 1;
-    int aktiver_spieler=0;
-    String Spielfeld= "";
-            
-    public Brett(int reihen, int spalten){
-        this.feldreihen=reihen;
-        this.feldspalten=spalten;
-        this.feld=new Lamp[reihen][spalten];
+    int aktiver_spieler = 0;
+    String Spielfeld = "";
+
+    public Brett(int reihen, int spalten) {
+        this.feldreihen = reihen;
+        this.feldspalten = spalten;
+        this.feld = new Lamp[reihen][spalten];
+        int zufall;
+        for (int i = 0; i < feld.length; i = i + 1) {
+            for (int j = 0; j < feld[i].length; j = j + 1) {
+                zufall = (int) (Math.random() * 2);
+                if (zufall == 0) {
+                    feld[i][j] = new Lamp(true);
+                } else {
+                    feld[i][j] = new Lamp(false);
+                }
+            }
+        }
     }
 
     public void zug(int reihe, int spalte) {
@@ -80,6 +91,7 @@ public class Brett {
         }
         return gewonnen;
     }
+
     public void spielen() {
         int reihenZ = 1;
         for (int sZ = 1; sZ <= feldspalten; sZ++) {
@@ -104,23 +116,43 @@ public class Brett {
             reihenZ++;
         }
         System.out.println();
-    } 
-/*        
+    }
+
+    /*        
     public String ausgabe_server() {
         Spielfeld=Spielfeld+spaltenZ;
         Spielfeld=Spielfeld+
       
     }
-*/
-    public void spieler_wechsel(int Runde){
-        Runde=Runde++;
+     */
+    public void spieler_wechsel(int Runde) {
+        Runde = Runde++;
     }
-    public void spieler_am_zug(int Runde, int aktiver_Spieler){
-        if(Runde%2==0){
-            aktiver_Spieler=2;
-        }else{
-            aktiver_Spieler=1;
+
+    public void spieler_am_zug(int Runde, int aktiver_Spieler) {
+        if (Runde % 2 == 0) {
+            aktiver_Spieler = 2;
+        } else {
+            aktiver_Spieler = 1;
         }
+    }
+
+    @Override
+    public String toString() {
+        String ausgabe = "";
+        for (int i = 0; i < feld.length; i = i + 1) {
+            for (int j = 0; j < feld[i].length; j = j + 1) {
+                if (feld[i][j].zustand == true) {
+                    ausgabe = ausgabe + "1 ";
+                } else {
+                    ausgabe = ausgabe + "0 ";
+                }
+            }
+            if (i != feld.length - 1) {
+                ausgabe = ausgabe + "newLine ";
+            }
+        }
+        return ausgabe;
     }
 
     public void eingabe(int reihe, int spalte) {
@@ -167,5 +199,14 @@ public class Brett {
         } else {
             System.out.println("UngÃ¼ltige Eingabe! Reihen und Spalten mÃ¼ssen vorhandensein.");
         }
+
+    }
+
+    public static void main(String[] args) {
+        //nur zu Testzwecken
+        
+        Brett b = new Brett(5, 5);
+        System.out.println(b.toString());
+
     }
 }

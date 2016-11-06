@@ -7,6 +7,7 @@ package network;
         
 import java.net.*;
 import java.io.*;
+import protocol.LightsoutProtocol1;
 
 public class KKMultiServerThread extends Thread {
     private Socket socket = null;
@@ -26,12 +27,12 @@ public class KKMultiServerThread extends Thread {
                     socket.getInputStream()));
         ) {
             String inputLine, outputLine;
-            KnockKnockProtocol kkp = new KnockKnockProtocol();
-            outputLine = kkp.processInput(null);
+            LightsoutProtocol1 lop = new LightsoutProtocol1();
+            outputLine = lop.processInput(null);
             out.println(outputLine);
 
             while ((inputLine = in.readLine()) != null) {
-                outputLine = kkp.processInput(inputLine);
+                outputLine = lop.processInput(inputLine);
                 out.println(outputLine);
                 if (outputLine.equals("Bye"))
                     break;

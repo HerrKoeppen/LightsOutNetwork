@@ -1,6 +1,5 @@
 package protocol;
 
-import java.util.Arrays;
 import lightsoutnetwork.Brett;
 
 public class LightsoutProtocol1 {
@@ -29,17 +28,25 @@ public class LightsoutProtocol1 {
         String theOutput = null;
 
         if (state == START) {
-            theOutput = "Herzlich Willkommen bei unserem Spiel! Wähle einen der gegeben Namen :Heinz";
+            theOutput = "Herzlich Willkommen bei unserem Spiel! Wie heisst du?";
             state = SENTNAME;
         } else if (state == SENTNAME) {
             namePlayer1 = theInput;
+            System.out.println("Hallo "+namePlayer1);
             //if (theInput.equalsIgnoreCase("Heinz")) {
             //theOutput = "Spalte zwischen 0 und 4 wählen. Nur ganze Zahlen!!!";
             //state = SENTROW;
             //} else {
             //    theOutput = "Du MUSST  \"Heinz\" heißen! ";
             Brett spielbrett =new Brett(5,5);
-            theOutput =Arrays.toString(spielbrett.feld);
+            System.out.println(spielbrett.toString());
+            theOutput =spielbrett.toString();
+            state = END;
+        }
+        else if (state==END){
+            theOutput = "Bye";
+            System.out.println("Bye");
+            state = START;
         }
         return theOutput;
     }
