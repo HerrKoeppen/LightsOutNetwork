@@ -10,13 +10,14 @@ public class LightsoutProtocol1 {
     private static final int SENTCOLOUMN = 3;
     private static final int WAITING = 4;
     private static final int END = 5;
-    private static final int PLAYING = 6;
-
-    private static final int NUMJOKES = 5;
-
+    
     private int state = START;
+    
     private String namePlayer1;
-
+    private int row;
+    private int coloumn;
+    private Brett spielbrett;
+    
     //private String[] name = { "Heinz", "Gustav", "Jorge", "Navid", "Klausi","Natalie","Ekin" };
     //private String[] answers = { "Turnip the heat, it's cold in here!",
     //                             "I didn't know you could yodel!",
@@ -38,10 +39,40 @@ public class LightsoutProtocol1 {
             //state = SENTROW;
             //} else {
             //    theOutput = "Du MUSST  \"Heinz\" heißen! ";
-            Brett spielbrett =new Brett(5,5);
+            spielbrett =new Brett(5,5);
             System.out.println(spielbrett.toString());
             theOutput =spielbrett.toString();
-            state = END;
+            state = SENTROW;
+        }    
+         if (state == SENTROW) {
+             if (spielbrett.prüfen = true ) {
+                 state = END;
+             }
+        }     
+                
+        else
+            System.out.println ( "Wähle eine Zahl zwischen 1 und 5 für die Reihe!");
+            row = Integer.parseInt(theInput);
+            if (row < 1 || row > 5) {
+                System.out.println ( "Falsche Eingabe!");
+                state = SENTROW;
+            }
+            else {
+                state = SENTCOLOUMN;
+            }    
+                
+        
+        if (state == SENTCOLOUMN) {
+            System.out.println ( "Wähle eine Zahl zwischen 1 und 5 für die Spalte!");
+            coloumn = Integer.parseInt(theInput);
+            if (coloumn < 1 || coloumn > 5) {
+                System.out.println ( "Falsche Eingabe!");
+                state = SENTCOLOUMN; }
+            else {
+                state = SENTROW;
+                
+        }    
+            
         }
         else if (state==END){
             theOutput = "Bye";
