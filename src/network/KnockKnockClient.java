@@ -21,8 +21,10 @@ public static void main(String[] args) throws IOException {
 //                "Usage: java EchoClient <host name> <port number>");
 //            System.exit(1);
 //        }
- 
-        String hostName = "localhost";
+        System.out.println("Geben Sie die IP Adresse des Servers ein!");
+        BufferedReader IP_Eingabe = new BufferedReader(new InputStreamReader(System.in));
+        
+        String hostName = IP_Eingabe.readLine();
         int portNumber = 80;
  
         try (
