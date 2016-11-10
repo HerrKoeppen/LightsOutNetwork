@@ -25,7 +25,7 @@ public static void main(String[] args) throws IOException {
         BufferedReader IP_Eingabe = new BufferedReader(new InputStreamReader(System.in));
         
         String hostName = IP_Eingabe.readLine();
-        int portNumber = 60;
+        int portNumber = 80;
         try (
             Socket kkSocket = new Socket(hostName, portNumber);
             PrintWriter out = new PrintWriter(kkSocket.getOutputStream(), true);
