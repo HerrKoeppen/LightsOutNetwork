@@ -25,8 +25,7 @@ public static void main(String[] args) throws IOException {
         BufferedReader IP_Eingabe = new BufferedReader(new InputStreamReader(System.in));
         
         String hostName = IP_Eingabe.readLine();
-        int portNumber = 80;
- 
+        int portNumber = 60;
         try (
             Socket kkSocket = new Socket(hostName, portNumber);
             PrintWriter out = new PrintWriter(kkSocket.getOutputStream(), true);
@@ -39,13 +38,16 @@ public static void main(String[] args) throws IOException {
             String fromUser;
  
             while ((fromServer = in.readLine()) != null) {
-                System.out.println("Server: " + fromServer);
+                if(fromServer.contains("newLine")){
+                    fromServer = fromServer.replace("newLine", "\n");
+                }
+                System.out.println("Server:\n " + fromServer);
                 if (fromServer.equals("Bye."))
                     break;
                  
                 fromUser = stdIn.readLine();
                 if (fromUser != null) {
-                    System.out.println("Client: " + fromUser);
+                    System.out.println("Client:\n " + fromUser);
                     out.println(fromUser);
                 }
             }
