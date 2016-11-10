@@ -45,7 +45,7 @@ public class LightsoutProtocol1 {
             state = SENTROW;
         }    
          if (state == SENTROW) {
-             if (spielbrett.prüfen = true ) {
+             if (spielbrett.prüfen() == true ) {
                  state = END;
              }
         }     
